@@ -1,0 +1,303 @@
+/* Ortak stil. Harici font, script veya izleyici yok. */
+
+:root {
+  --bg: #0B0710;
+  --surface: #150E1B;
+  --border: #2B2032;
+  --text: #EDE6EA;
+  --muted: #B6ABB2;
+  --accent: #D12A48;
+  /* #D12A48 koyu zeminde gövde metni için yeterli kontrast vermez;
+     bağlantı metni için açık tonu kullanılır, alt çizgi vurgu rengindedir. */
+  --link: #F27389;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+
+html:lang(ar) body {
+  font-family: "Geeza Pro", "Noto Naskh Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.85;
+}
+
+.wrap {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Üst bar */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.25rem;
+  padding-block: 0.9rem;
+}
+
+.brand {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.brand::before {
+  content: "";
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-inline-end: 0.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: 0.1em;
+}
+
+.langs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.92rem;
+}
+
+.langs li {
+  margin: 0;
+}
+
+.langs a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* İçerik */
+
+main {
+  padding-block: 2rem 3rem;
+}
+
+h1 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.7rem, 6vw, 2.2rem);
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 2.25rem 0 0.6rem;
+  padding-inline-start: 0.65rem;
+  border-inline-start: 3px solid var(--accent);
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+h3 {
+  margin: 1.5rem 0 0.4rem;
+  font-size: 1.02rem;
+}
+
+p,
+ul,
+ol,
+dl {
+  margin: 0 0 1rem;
+}
+
+ul,
+ol {
+  padding-inline-start: 1.3rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+li::marker {
+  color: var(--accent);
+}
+
+strong {
+  font-weight: 650;
+}
+
+.meta {
+  margin: 0 0 1.75rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.lead {
+  font-size: 1.08em;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.summary {
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-inline-start: 3px solid var(--accent);
+  border-radius: 0.5rem;
+}
+
+.summary h2 {
+  margin: 0 0 0.5rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.05rem;
+}
+
+.summary ul {
+  margin: 0;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.3rem 1.25rem;
+}
+
+.facts dt {
+  color: var(--muted);
+}
+
+.facts dd {
+  margin: 0;
+}
+
+@media (max-width: 30rem) {
+  .facts {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .facts dd {
+    margin-bottom: 0.6rem;
+  }
+}
+
+/* Dil ve belge kartları */
+
+.cards {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards li {
+  margin: 0;
+}
+
+.cards a {
+  display: block;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cards a:hover,
+.cards a:focus-visible {
+  border-color: var(--accent);
+}
+
+.cards small {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.93rem;
+  font-weight: 400;
+}
+
+@media (min-width: 36rem) {
+  .cards.two {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Alt bilgi */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.site-footer .wrap {
+  padding-block: 1.25rem 2rem;
+}
+
+.site-footer p {
+  margin: 0 0 0.4rem;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  a {
+    color: #000;
+  }
+
+  .site-header nav,
+  .summary {
+    background: none;
+  }
+}
